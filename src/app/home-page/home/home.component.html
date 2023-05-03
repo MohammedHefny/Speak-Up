@@ -1,0 +1,33 @@
+<div class="col-lg-4 col-md-4 col-xs-12 ">
+  <div class="home" [ngStyle]="{backgroundColor: getColor()}">
+
+    <div class="  col-xs-6 text-holder">
+      <img class="img-responsive" src="{{ post.imageUrl }}" alt="">
+      <div>
+        <span>{{ username | shorten:0:7 }}</span>
+        <span>{{ post.time | date:'h' }}h</span>
+      </div>
+    </div>
+    <div class=" col-xs-6 icon-holder">
+      <span (click)="onMenu()">. . .</span>
+      <span (click)="onDelete()">X</span>
+      <ul class="menu" [ngClass]="{makeBlock: block === true}">
+        <li (click)="onEdit()">Edit Post</li>
+        <li (click)="onAddToFavourite()">{{ clicked === true ? 'Remove From Favourite' : 'Add To Favourite'}}</li>
+      </ul>
+    </div>
+    <div class="col-xs-12">
+      <p>{{ post.thougths }}</p>
+    </div>
+    <div class="row">
+
+      <div class="col-xs-6 image">
+        <img class="img-responsive" src="{{ post.imageUrl }}" alt="">
+      </div>
+      <div class="col-xs-6">
+        <div class="feel"> Feeling <span>{{ post.feeling }} </span></div>
+      </div>
+    </div>
+
+  </div>
+</div>

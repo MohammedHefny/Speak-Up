@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="hold">
+    <div class="col-md-6">
+
+      <div class="image">
+        <img class="img-responsive" src="assets/pexels-ovan-57690.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="row">
+          <div class="col-md-12">
+            <label for="name">Enter Your Name</label>
+            <input type="text" id="name" name="name" ngModel required [(ngModel)]="username" (keyup)="onUsername()"
+              pattern="[^1-9]+" #user="ngModel">
+            <span *ngIf="user.invalid && user.touched" class="help-block">enter a valid name Without any numbers</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="email">Enter Your Email</label>
+            <input type="email" id="email" name="email" ngModel required email>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="password">password</label>
+            <input type="number" id="password" name="pass1" ngModel required [(ngModel)]="pass1" #p1="ngModel">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="password2">ReEnter The Password</label>
+            <input type="number" id="password2" name="pass2" ngModel required [(ngModel)]="pass2" (keyup)="onPassBlur()"
+              #p2="ngModel">
+            <span *ngIf="pass1 != pass2 && p1.touched && p2.touched" class="help-block">Non Matching Passwords</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="buttons">
+              <button type="submit" [disabled]="f.invalid || passwordMatch === false" (click)="onLogin()">Login</button>
+              <button type="button" (click)="onLogout()">logout</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

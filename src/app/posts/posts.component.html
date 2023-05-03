@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-6">
+
+    <form [formGroup]="postForm" (ngSubmit)="onSumbit()">
+      <div class="row">
+        <div class="col-md-12">
+          <label for="thougths">what are you thougths</label>
+          <textarea name="thougths" id="thougths" formControlName="thougths"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+
+          <label for="image">Enter Your Image URL</label>
+          <input type="text" id="image" formControlName="image" (blur)="onImageBlur()">
+        </div>
+
+      </div>
+      <div class="col-md-12">
+        <div class="feeling">
+          <label for="image">How Do you feel</label>
+          <select name="feeling" formControlName="feeling">
+            <option>Happy</option>
+            <option>Excited</option>
+            <option>Sad</option>
+            <option>Angry</option>
+            <option>Sleepy</option>
+            <option>Stupid</option>
+            <option>Smart</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="buttons">
+            <button type="submit" [disabled]="postForm.invalid">{{!EditMode ? 'Add Post' : 'Update Post'}}</button>
+            <button type="button" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <router-outlet></router-outlet>
+
+  </div>
+</div>

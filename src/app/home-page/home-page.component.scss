@@ -1,0 +1,14 @@
+.home {
+  margin-block: 10px;
+}
+button {
+  background-image: linear-gradient(
+    46deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border: 3px solid var(--yellow-color);
+  padding: 10px;
+  color: whitesmoke;
+  border-radius: 5px;
+}
